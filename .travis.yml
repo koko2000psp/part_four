@@ -1,16 +1,18 @@
 language: node_js
 node_js:
-	- 13
+  - 13
 
 services:
-	- docker
+  - docker
 
 before_script:
-	- echo "No Testing scripts present"
+  - echo "No Testing scripts present"
 
 script:
-	- docker build -t usingTravis .
-	- docker tag usingTravis koko2000psp/usingTravis:latest
+  - docker --version
+  - docker build -t usingTravis .
+  - docker tag usingTravis koko2000psp/usingTravis:latest
 
 after_success:
-	- docker push koko2000psp/usingTravis
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push koko2000psp/usingTravis
