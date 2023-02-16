@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+	- 13
+
+services:
+	- docker
+
+before_script:
+	- echo "No Testing scripts present"
+
+script:
+	- docker build -t usingTravis .
+	- docker tag usingTravis koko2000psp/usingTravis:latest
+
+after_success:
+	- docker push koko2000psp/usingTravis
