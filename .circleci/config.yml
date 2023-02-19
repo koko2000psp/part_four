@@ -10,10 +10,9 @@ jobs:
           username: koko2000psp
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - run:
-          name: The First Step
-          command: |
-            echo "Here in RUN"
+      - docker/build:
+          image: circle 
+          tag: koko2000psp/circle 
       - docker/push:
           image: circle 
           tag: circle 
