@@ -13,11 +13,5 @@ jobs:
       - docker/build:
           image: circle 
           tag: koko2000psp/circle 
-workflows:
-    example-workflow:
-      jobs:
-        - docker/publish:
-            docker-password: DOCKERHUB_PASSWORD 
-            docker-username: koko2000psp 
-            image: koko2000psp/circle 
-            deploy: true 
+      - docker/push:
+          image: circle 
