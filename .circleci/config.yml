@@ -10,5 +10,14 @@ jobs:
       - run:
           name: The First Step
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+            docker build -t circle .
+            docker tag circle koko2000psp/circle
+  deploy:
+    steps:
+     - run:
+        name: Deploy to Docker Hub
+        command: |
+          echo "$DOCKERHUB_PASSWORD" | docker login -u koko2000psp
+          docker push koko2000psp/circle
+  	 
+  
