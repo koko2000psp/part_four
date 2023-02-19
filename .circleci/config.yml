@@ -13,9 +13,6 @@ jobs:
       - docker/build:
           image: circle 
           tag: koko2000psp/circle 
-      - docker/push:
-          image: circle 
-          tag: circle 
 workflows:
     example-workflow:
       jobs:
