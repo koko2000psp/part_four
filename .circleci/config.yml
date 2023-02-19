@@ -19,5 +19,3 @@ jobs:
         command: |
           echo "$DOCKERHUB_PASSWORD" | docker login -u koko2000psp
           docker push koko2000psp/circle
-  	 
-  
