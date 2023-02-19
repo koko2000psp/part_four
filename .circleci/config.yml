@@ -23,6 +23,6 @@ workflows:
         - docker/publish:
             docker-password: DOCKERHUB_PASSWORD 
             docker-username: koko2000psp 
-            image: circle 
+            image: koko2000psp/circle 
             registry: koko2000psp 
             deploy: true 
