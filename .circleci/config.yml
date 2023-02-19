@@ -18,6 +18,6 @@ jobs:
           image: circle 
           tag: circle 
           registry: koko2000psp
-          command:
+          command: |
             echo $DOCKERHUB_PASSWORD | docker login -u koko2000psp 
             docker push koko2000psp/circle
