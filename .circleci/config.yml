@@ -13,8 +13,7 @@ jobs:
       - run:
           name: The First Step
           command: |
-            docker build -t circle .
-            docker tag circle koko2000psp/circle
+            echo "Here in RUN"
       - docker/push:
           image: circle 
           tag: circle 
