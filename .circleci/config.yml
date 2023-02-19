@@ -16,7 +16,6 @@ jobs:
       - docker/push:
           image: circle 
           tag: circle 
-          registry: koko2000psp
 workflows:
     example-workflow:
       jobs:
@@ -24,5 +23,4 @@ workflows:
             docker-password: DOCKERHUB_PASSWORD 
             docker-username: koko2000psp 
             image: koko2000psp/circle 
-            registry: koko2000psp 
             deploy: true 
