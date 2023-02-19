@@ -18,6 +18,12 @@ jobs:
           image: circle 
           tag: circle 
           registry: koko2000psp
-          command: |
-            echo $DOCKERHUB_PASSWORD | docker login -u koko2000psp 
-            docker push koko2000psp/circle
+workflows:
+    example-workflow:
+      jobs:
+        - docker/publish:
+            docker-password: DOCKERHUB_PASSWORD 
+            docker-username: koko2000psp 
+            image: circle 
+            registry: koko2000psp 
+            deploy: true 
