@@ -1,3 +1,6 @@
+orbs:
+  docker: circleci/docker@1.7.0
+
 version: 2.1
 jobs:
   build:
@@ -12,10 +15,6 @@ jobs:
           command: |
             docker build -t circle .
             docker tag circle koko2000psp/circle
-  deploy:
-    steps:
-     - run:
-        name: Deploy to Docker Hub
-        command: |
-          echo "$DOCKERHUB_PASSWORD" | docker login -u koko2000psp
-          docker push koko2000psp/circle
+      - docker/push:
+          image: circle 
+          tag: circle 
